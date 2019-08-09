@@ -2,7 +2,7 @@
 
 if [[ $# -le 5 ]] ; then
     echo "usage:
-    $0	[hosts filter] [duplicates] [extra command]
+    $0	<server> <port> <user> <passwd> <accountname> <hub(optional)>
     "
     exit 0
 fi

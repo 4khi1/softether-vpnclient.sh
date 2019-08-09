@@ -1,16 +1,25 @@
 #!/bin/bash
-SERVER=$1:$2   # 1194,5555
-USERNAME=$3
-PASSWORD=$4
-ACCOUNTNAME=$5
+
+if [[ $# -le 5 ]] ; then
+    echo "usage:
+    $0	[hosts filter] [duplicates] [extra command]
+    "
+    exit 0
+fi
+
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 
    exit 1
 fi
 
-/opt/vpnclient/vpnclient start
+SERVER=$1:$2   # 1194,5555
+USERNAME=$3
+PASSWORD=$4
+ACCOUNTNAME=$5
+HUB=${6:-vpn}
+
 /opt/vpnclient/vpncmd /client localhost /cmd niccreate "$ACCOUNTNAME"
-/opt/vpnclient/vpncmd /client localhost /cmd accountcreate $ACCOUNTNAME /SERVER:"$SERVER" /HUB:vpn /USERNAME:"$USERNAME" /NICNAME:softether
-/opt/vpnclient/vpncmd /client localhost /cmd accountpasswordset $ACCOUNTNAME /PASSWORD:"$PASSWORD" /TYPE:standard
-/opt/vpnclient/vpncmd /client localhost /cmd accountstartupset $ACCOUNTNAME
-/opt/vpnclient/vpnclient stop
+/opt/vpnclient/vpncmd /client localhost /cmd accountcreate "$ACCOUNTNAME" /SERVER:"$SERVER" /HUB:"$HUB" /USERNAME:"$USERNAME" /NICNAME:"$ACCOUNTNAME"
+/opt/vpnclient/vpncmd /client localhost /cmd accountpasswordset "$ACCOUNTNAME" /PASSWORD:"$PASSWORD" /TYPE:standard
+/opt/vpnclient/vpncmd /client localhost /cmd accountstartupset "$ACCOUNTNAME"
+/opt/vpnclient/vpncmd /client localhost /cmd accountconnect "$ACCOUNTNAME"

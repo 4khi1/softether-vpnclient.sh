@@ -1,0 +1,30 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: vpnclient
+# Required-Start: $network
+# Required-Stop:
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start VPN Client at boot time
+# description: Start VPN Client at boot time.
+# processname: vpnclient
+### END INIT INFO
+case "\$1" in
+    start)
+        echo "Starting VPN Client"
+        /opt/vpnclient/vpnclient start
+        for i in `ls /sys/class/net/ | grep vpn_`; do
+            dhclient -r "$i"
+            dhclient -v "$i"
+        done
+        ;;
+    stop)
+        echo "Stopping VPN Client"
+        /opt/vpnclient/vpnclient stop
+        ;;
+    *)
+        echo "Usage: /etc/init.d/vpnclient {start|stop}"
+        exit 1
+        ;;
+esac
+exit 0

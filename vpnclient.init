@@ -13,10 +13,6 @@ case "$1" in
     start)
         echo "Starting VPN Client"
         /opt/vpnclient/vpnclient start
-        for i in `ls /sys/class/net/ | grep vpn_`; do
-            dhclient -r "$i"
-            dhclient -v "$i"
-        done
         ;;
     stop)
         echo "Stopping VPN Client"

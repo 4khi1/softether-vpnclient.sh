@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $# -le 5 ]] ; then
+if [[ $# -lt 5 ]] ; then
     echo "usage:
     $0	<server> <port> <user> <passwd> <accountname> <hub(optional)>
     "

@@ -9,7 +9,7 @@
 # description: Start VPN Client at boot time.
 # processname: vpnclient
 ### END INIT INFO
-case "\$1" in
+case "$1" in
     start)
         echo "Starting VPN Client"
         /opt/vpnclient/vpnclient start

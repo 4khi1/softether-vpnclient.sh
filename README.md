@@ -8,12 +8,12 @@ CentOS
 ```
 yum install gcc make libtool
 ```
-## Install
+## Install & Configure
 ```
 git clone https://github.com/akhilin/softether-vpnclient.sh.git /opt/softether-vpnclient.sh
 ./opt/softether-vpnclient.sh/configure.sh <server> <port> <user> <passwd> <accountname> <hub(optional)> # default port is 992 and hub:vpn
 ```
-## Systemd
+## Systemd Unit
 ```
 # to enable on boot
 systemctl enable vpnclient

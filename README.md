@@ -10,8 +10,8 @@ yum install gcc make libtool
 ```
 ## Install & Configure
 ```
-git clone https://github.com/akhilin/softether-vpnclient.sh.git /opt/softether-vpnclient.sh
-./opt/softether-vpnclient.sh/configure.sh <server> <port> <user> <passwd> <accountname> <hub(optional)> # default port is 992 and hub:vpn
+sudo git clone https://github.com/akhilin/softether-vpnclient.sh.git /opt/softether-vpnclient.sh
+sudo /opt/softether-vpnclient.sh/configure.sh <server> <port> <user> <passwd> <accountname> <hub(optional)> # default port is 992 and hub:vpn
 ```
 ## Systemd Unit
 ```

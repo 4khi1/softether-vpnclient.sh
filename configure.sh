@@ -18,9 +18,9 @@ PASSWORD=$4
 ACCOUNTNAME=$5
 HUB=${6:-vpn}
 
-/opt/vpnclient/vpncmd /client localhost /cmd niccreate "$ACCOUNTNAME"
-/opt/vpnclient/vpncmd /client localhost /cmd accountcreate "$ACCOUNTNAME" /SERVER:"$SERVER" /HUB:"$HUB" /USERNAME:"$USERNAME" /NICNAME:"$ACCOUNTNAME"
-/opt/vpnclient/vpncmd /client localhost /cmd accountpasswordset "$ACCOUNTNAME" /PASSWORD:"$PASSWORD" /TYPE:standard
-/opt/vpnclient/vpncmd /client localhost /cmd accountdetailset "$ACCOUNTNAME" /MAXTCP:32 /INTERVAL:1 /TTL:0 /HALF:yes /BRIDGE:no /MONITOR:no /NOTRACK:yes /NOQOS:yes
-/opt/vpnclient/vpncmd /client localhost /cmd accountstartupset "$ACCOUNTNAME"
-/opt/vpnclient/vpncmd /client localhost /cmd accountconnect "$ACCOUNTNAME"
+sudo /opt/vpnclient/vpncmd /client localhost /cmd niccreate "$ACCOUNTNAME"
+sudo /opt/vpnclient/vpncmd /client localhost /cmd accountcreate "$ACCOUNTNAME" /SERVER:"$SERVER" /HUB:"$HUB" /USERNAME:"$USERNAME" /NICNAME:"$ACCOUNTNAME"
+sudo /opt/vpnclient/vpncmd /client localhost /cmd accountpasswordset "$ACCOUNTNAME" /PASSWORD:"$PASSWORD" /TYPE:standard
+sudo /opt/vpnclient/vpncmd /client localhost /cmd accountdetailset "$ACCOUNTNAME" /MAXTCP:32 /INTERVAL:1 /TTL:0 /HALF:yes /BRIDGE:no /MONITOR:no /NOTRACK:yes /NOQOS:yes
+sudo /opt/vpnclient/vpncmd /client localhost /cmd accountstartupset "$ACCOUNTNAME"
+sudo /opt/vpnclient/vpncmd /client localhost /cmd accountconnect "$ACCOUNTNAME"

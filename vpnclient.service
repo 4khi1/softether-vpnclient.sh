@@ -1,0 +1,13 @@
+[Unit]
+Description=Softether VPN Client service
+After=network.target
+
+[Service]
+User=root
+Group=root
+ExecStart=/opt/vpnclient/vpnclient start
+ExecStop=/opt/vpnclient/vpnclient stop
+Type=forking
+
+[Install]
+WantedBy=multi-user.target

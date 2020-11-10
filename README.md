@@ -1,4 +1,8 @@
 # Softether VPN Client Setup and Configuration
+
+### Why I made this?
+_Softether vpnclient for linux don't have UI like windows client for configuring vpn accounts which takes couple of commands so I created some scripts for easy setup and oneshot configuration_
+
 ## Install Dependencies
 Ubuntu/Debian
 ```

@@ -12,7 +12,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-SERVER=$1:$2   # 1194,5555
+SERVER=$1:$2   # 1194,5555,443,53
 USERNAME=$3
 PASSWORD=$4
 ACCOUNTNAME=$5

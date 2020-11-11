@@ -27,5 +27,5 @@ systemctl enable/start/status/stop vpnclient
 ```
 ## dhclient
 ```
-dhclient -rv vpn_<accountname>
+dhclient -v vpn_<accountname>
 ```
